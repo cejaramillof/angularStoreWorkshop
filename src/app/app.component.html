@@ -28,6 +28,11 @@
   </div>
 </ng-template>
 
+<div [ngSwitch]="isLoggedIn">
+  <p *ngSwitchCase="true">Welcome back, friend.</p>
+  <p *ngSwitchCase="false">Please friend, login.</p>
+</div>
+
 <button (click)="addName()">Add name</button>
 <ul>
   <li *ngFor="let name of names; index as i">
