@@ -2,5 +2,37 @@
 <input type="text" [(ngModel)]="title">
 <!-- Property Binding-->
 <input type="text" [ngModel]="title">
-<!-- String Interpolation -->
-{{ title }}
+<div *ngIf="title; then titleTemplate else noTitleTemplate">
+  <!-- String Interpolation -->
+  {{ title }}
+</div>
+
+<!-- Vista o template-->
+<ng-template #titleTemplate>
+  {{ title }}
+</ng-template>
+
+<ng-template #noTitleTemplate>
+  No title
+</ng-template>
+
+<ng-template [ngIf]="isLoggedIn" [ngIfElse]="loggedOut">
+  <div>
+    Welcome back, friend.
+  </div>
+</ng-template>
+
+<ng-template #loggedOut>
+  <div>
+    Please friend, login.
+  </div>
+</ng-template>
+
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngFor="let name of names; index as i">
+    {{ i + '.'}}
+    {{ name }}
+    <button (click)="removeName(i)">Delete</button>
+  </li>
+</ul>

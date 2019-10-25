@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-store';
+  title: string = 'angular-store';
+  isLoggedIn: boolean = true;
+  loggedOut: boolean = true;
+  names: Array<string> = ['Carlos', 'Camila', 'Tyrone'];
+
+  addName(): void {
+    this.names.push('New');
+  }
+
+  removeName(id: number): void {
+    this.names.splice(id, 1);
+  }
 }
