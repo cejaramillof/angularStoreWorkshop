@@ -36,3 +36,8 @@
     <button (click)="removeName(i)">Delete</button>
   </li>
 </ul>
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img style="max-width: 100px;" [src]="product.image" />
+</div>
