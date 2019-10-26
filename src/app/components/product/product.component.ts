@@ -1,4 +1,4 @@
-import { Product } from "./product.model";
+import { Product } from './product.model';
 import {
   Component,
   OnInit,
@@ -9,14 +9,14 @@ import {
   SimpleChanges,
   DoCheck,
   OnDestroy
-} from "@angular/core";
+} from '@angular/core';
 
 @Component({
   // Decorator
   // MetaData from Component
-  selector: "app-product",
-  templateUrl: "./product.component.html",
-  styleUrls: ["./product.component.scss"]
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit, DoCheck, OnDestroy {
   @Input() product: Product;
@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
   };*/
 
   constructor() {
-    console.log("1. constructor");
+    console.log('1. constructor');
   }
   /*
   ngOnChanges(changes: SimpleChanges) {
@@ -44,20 +44,20 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 */
   ngOnInit() {
     // Call data services
-    console.log("3. ngOnInit");
+    console.log('3. ngOnInit');
   }
 
   ngDoCheck() {
     // Se pueden detectar cambios, con una implementación forzada o manual
-    console.log("4. ngDoCheck");
+    console.log('4. ngDoCheck');
   }
 
   ngOnDestroy() {
-    console.log("5. ngOnDestroy");
+    console.log('5. ngOnDestroy');
   }
 
   addCart() {
-    console.log("added");
+    console.log('added');
     this.productClicked.emit(this.product.id);
   }
 }

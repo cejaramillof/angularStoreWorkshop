@@ -7,9 +7,9 @@ import { Product } from './components/product/product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'angular-store';
-  isLoggedIn: boolean = true;
-  loggedOut: boolean = true;
+  title = 'angular-store';
+  isLoggedIn = true;
+  loggedOut = true;
   names: Array<string> = ['Carlos', 'Camila', 'Tyrone'];
   products: Array<Product> = [
     {
