@@ -11,6 +11,7 @@ export class AppComponent {
   isLoggedIn = true;
   loggedOut = true;
   names: Array<string> = ['Carlos', 'Camila', 'Tyrone'];
+  power = 10;
   products: Array<Product> = [
     {
       id: '1',
