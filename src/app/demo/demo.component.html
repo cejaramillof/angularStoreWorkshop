@@ -1,0 +1,56 @@
+
+<input type="text" [(ngModel)]="power">
+{{ power | exponential }}
+
+<!-- Two way Binding -->
+<input type="text" [(ngModel)]="title">
+<!-- Property Binding-->
+<input type="text" [ngModel]="title">
+<div *ngIf="title; then titleTemplate else noTitleTemplate">
+  <!-- String Interpolation -->
+  {{ title }}
+</div>
+
+<!-- Vista o template-->
+<ng-template #titleTemplate>
+  {{ title }}
+</ng-template>
+
+<ng-template #noTitleTemplate>
+  No title
+</ng-template>
+
+<ng-template [ngIf]="isLoggedIn" [ngIfElse]="loggedOut">
+  <div>
+    Welcome back, friend.
+  </div>
+</ng-template>
+
+<ng-template #loggedOut>
+  <div>
+    Please friend, login.
+  </div>
+</ng-template>
+
+<div [ngSwitch]="isLoggedIn">
+  <p *ngSwitchCase="true">Welcome back, friend.</p>
+  <p *ngSwitchCase="false">Please friend, login.</p>
+  <p *ngSwitchDefault>No match</p>
+</div>
+
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngFor="let name of names; index as i">
+    {{ i + '.'}}
+    {{ name }}
+    <button (click)="removeName(i)">Delete</button>
+  </li>
+</ul>
+
+<div class="product-grid">
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (productClicked)="clickProduct($event)">
+  </app-product>
+</div>
