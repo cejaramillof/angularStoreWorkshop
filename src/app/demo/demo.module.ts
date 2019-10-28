@@ -14,8 +14,8 @@ import {ProductModule} from '../product/product.module';
     CommonModule,
     SharedModule,
     FormsModule,
-    DemoRoutingModule,
-    ProductModule
+    ProductModule,
+    DemoRoutingModule
   ]
 })
 export class DemoModule {

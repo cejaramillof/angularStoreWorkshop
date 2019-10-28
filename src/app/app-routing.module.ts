@@ -19,7 +19,7 @@ const routes: Routes = [
         loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
     ]
   },
-  { path: 'demox',
+  { path: 'demo',
     loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule) },
   { path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule) }
