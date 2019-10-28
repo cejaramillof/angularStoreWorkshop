@@ -6,6 +6,7 @@ import {ProductComponent} from './components/product/product.component';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
 import {SharedModule} from '../shared/shared.module';
 import {FormsModule} from '@angular/forms';
+import {MaterialModule} from '../material/material.module';
 
 
 
@@ -23,7 +24,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     ProductRoutingModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class ProductModule { }
