@@ -52,11 +52,11 @@ export class ProductsService {
 
   constructor() { }
 
-  getAllProducts() {
+  getAllProducts(): Array<Product> {
     return this.products;
   }
 
-  getProduct(id: string) {
+  getProduct(id: string): Product {
     return this.products.find(item => id === item.id);
   }
 }

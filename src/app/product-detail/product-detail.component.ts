@@ -9,7 +9,7 @@ import {Product} from '../components/product/product.model';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-
+  product: Product;
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService
@@ -18,8 +18,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const id: string = params.id;
-      const product: Product = this.productsService.getProduct(id);
-      console.log(product);
+      this.product = this.productsService.getProduct(id);
     });
   }
 
