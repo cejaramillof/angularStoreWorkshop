@@ -22,7 +22,7 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  fetchProduct(id: string) {
+  fetchProduct(id: string): void {
     this.productsService.getProduct(id)
       .subscribe(product => {
         this.product = product;
