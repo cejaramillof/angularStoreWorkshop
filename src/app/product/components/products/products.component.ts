@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   }
 
   fetchProducts() {
-    this.productsService.getAllProducts()
+    this.productsService.getAll()
       .subscribe(products => {
         this.products = products;
       });

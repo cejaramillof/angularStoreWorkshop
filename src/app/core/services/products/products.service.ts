@@ -59,16 +59,24 @@ export class ProductsService {
     private http: HttpClient
   ) { }
 
-  getAllProducts(): Observable<Array<Product>> {
+  getAll(): Observable<Array<Product>> {
     return this.http.get<Array<Product>>(`${this.apiUrl}products`);
   }
 
-  getProduct(id: string): Observable<Product> {
+  get(id: string): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}products/${id}`);
     // return this.products.find(item => id === item.id);
   }
 
-  createProduct(product: Product): Observable<Product> {
+  create(product: Product): Observable<Product> {
     return this.http.post<Product>(`${this.apiUrl}products`, product);
+  }
+
+  update(id: string, changes: Partial<Product>): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrl}products/${id}`, changes);
+  }
+
+  delete(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.apiUrl}products/${id}`);
   }
 }

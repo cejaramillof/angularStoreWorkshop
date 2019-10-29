@@ -23,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   fetchProduct(id: string): void {
-    this.productsService.getProduct(id)
+    this.productsService.get(id)
       .subscribe(product => {
         this.product = product;
       });
@@ -38,10 +38,30 @@ export class ProductDetailComponent implements OnInit {
       image: '9I9D'
     };
 
-    this.productsService.createProduct(newProduct)
+    this.productsService.create(newProduct)
       .subscribe(product => {
         // this.product = product;
         console.log(product);
+      });
+  }
+
+  updateProduct() {
+    const updateProduct: Partial<Product> = {
+      id: '2',
+      title: 'TITLE edited',
+    };
+
+    this.productsService.update(updateProduct.id, updateProduct)
+      .subscribe(product => {
+        // this.product = product;
+        console.log(product);
+      });
+  }
+
+  deleteProduct(): void {
+    this.productsService.delete('1')
+      .subscribe(res => {
+        console.log(res);
       });
   }
 }
