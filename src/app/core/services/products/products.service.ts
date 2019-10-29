@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import {Product} from '../../../product.model';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  products: Array<Product> = [
+  platziApi: string = 'http://platzi-store.herokuapp.com/';
+  productsArray: Array<Product> = [
     {
       id: '1',
       image: 'assets/images/camiseta.png',
@@ -49,14 +52,18 @@ export class ProductsService {
       description: 'bla bla bla bla bla'
     },
   ];
+  product: Array<Product>;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  getAllProducts(): Array<Product> {
-    return this.products;
+  getAllProducts(): Observable<Array<Product>> {
+    return this.http.get<Array<Product>>(`${this.platziApi}products`);
   }
 
-  getProduct(id: string): Product {
-    return this.products.find(item => id === item.id);
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.platziApi}products/${id}`);
+    // return this.products.find(item => id === item.id);
   }
 }
