@@ -1,11 +1,15 @@
-
 :host {
-  margin: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-  display: block;
 }
-
-img {
-  max-width: 100%;
+.crop-image {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+  }
 }

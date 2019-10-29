@@ -1,9 +1,20 @@
-<!-- <div *ngFor="let product of products"> -->
-<h3 appHighlight [backgroundColor]="'black'" [color]="'#ffffff'" >{{ product.title | uppercase }}</h3>
-<img [src]="product.image" alt="{{ product.title + 'image' }}" />
-<strong>{{ product.price | currency: 'COP' }}</strong>
-<p>{{ product.description | slice: 0:10 }}</p>
-<p>{{ today | date: 'medium' }}</p>
-
-<button mat-raised-button color="primary" (click)="addCart()">Add to Cart</button>
-<a [routerLink]="['/products', product.id]">Ver Detalle</a>
+<mat-card class="box">
+  <mat-card-header>
+    <mat-card-title>
+      {{ product.title | uppercase }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ product.price | currency: 'COP' }}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <div class="crop-image">
+    <img [src]="product.image" alt="{{ product.title + 'image' }}" />
+  </div>
+  <mat-card-content>
+    <p>{{ product.description | slice: 0:10 }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button [routerLink]="['/products', product.id]">Ver Detalle</a>
+    <button mat-raised-button color="primary" (click)="addCart()">Add to Cart</button>
+  </mat-card-actions>
+</mat-card>
