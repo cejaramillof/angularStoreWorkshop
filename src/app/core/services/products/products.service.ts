@@ -67,4 +67,8 @@ export class ProductsService {
     return this.http.get<Product>(`${this.apiUrl}products/${id}`);
     // return this.products.find(item => id === item.id);
   }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(`${this.apiUrl}products`, product);
+  }
 }

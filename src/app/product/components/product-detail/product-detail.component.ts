@@ -28,4 +28,20 @@ export class ProductDetailComponent implements OnInit {
         this.product = product;
       });
   }
+
+  createProduct() {
+    const newProduct: Product = {
+      id: new Date().toDateString(),
+      title: 'TITLE',
+      description: 'DESCRIPTXXXIONE',
+      price: 9023,
+      image: '9I9D'
+    };
+
+    this.productsService.createProduct(newProduct)
+      .subscribe(product => {
+        // this.product = product;
+        console.log(product);
+      });
+  }
 }
