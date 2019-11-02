@@ -4,11 +4,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {
   MatBadgeModule,
-  MatCardModule, MatGridListModule,
+  MatCardModule, MatFormFieldModule, MatGridListModule,
   MatIconModule,
-  MatInputModule, MatMenuModule, MatPaginatorModule,
+  MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
   MatRadioModule,
-  MatSelectModule, MatSortModule,
+  MatSelectModule, MatSidenavModule, MatSortModule,
   MatTableModule
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -30,7 +30,10 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSortModule,
     MatGridListModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    MatFormFieldModule
   ],
   exports: [
     MatButtonModule,
@@ -46,7 +49,10 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSortModule,
     MatGridListModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }

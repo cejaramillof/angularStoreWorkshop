@@ -6,9 +6,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../material/material.module';
-import {MatBadgeModule, MatIconModule} from '@angular/material';
-
-
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +24,8 @@ import {MatBadgeModule, MatIconModule} from '@angular/material';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
