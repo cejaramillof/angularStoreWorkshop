@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from '../../../core/services/cart.service';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +9,22 @@ import {CartService} from '../../../core/services/cart.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  total = 0;
+  total$: Observable<number>;
 
   constructor(
     private cartService: CartService
   ) {
-    this.cartService.cart$.subscribe(products => {
-      this.total = products.length;
-    });
+    // not subscribe, is a observable. (data flow that will be alive)
+    // subscribe in front to better performance
+    this.total$ = this.cartService.cart$
+      .pipe(
+        map(products => products.length)
+      );
+      /*
+      this.cartService.cart$.subscribe(products => {
+        this.total = products.length;
+      });
+       */
   }
 
   ngOnInit() {
