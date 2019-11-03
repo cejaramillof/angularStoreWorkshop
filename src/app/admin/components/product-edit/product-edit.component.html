@@ -1,18 +1,10 @@
 <form [formGroup]="form" (ngSubmit)="saveProduct($event)">
   <mat-card class="shipping-card">
     <mat-card-header>
-      <mat-card-title>Create Product</mat-card-title>
+      <mat-card-title>Edit Product</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Identification Number" formControlName="id" type="text">
-            <mat-error *ngIf="form.controls['id'].hasError('required')">
-              Identification Number is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Product Title" formControlName="title" type="text">

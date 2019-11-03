@@ -1,24 +1,37 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProductsService} from '../../../core/services/products/products.service';
 import {Product} from '../../../product.model';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {MyValidators} from '../../../utils/validators';
 
 @Component({
-  selector: 'app-product-form',
-  templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.scss']
+  selector: 'app-product-edit',
+  templateUrl: './product-edit.component.html',
+  styleUrls: ['./product-edit.component.scss']
 })
-export class ProductFormComponent {
+export class ProductEditComponent implements OnInit{
   form: FormGroup;
+  id: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.buildForm();
+    this.form.markAllAsTouched();
+  }
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.id = params.id;
+      this.productsService.get(this.id)
+        .subscribe( product => {
+          this.form.patchValue(product);
+        });
+    });
   }
 
   saveProduct(event: Event) {
@@ -29,7 +42,7 @@ export class ProductFormComponent {
     // this.form.controls['title'].valueChanges.subscribe( val => console.log(val));
     if (this.form.valid) {
       const product: Product = this.form.value;
-      this.productsService.create(product)
+      this.productsService.update(this.id, product)
         .subscribe(newProduct => {
           console.log(newProduct);
           this.router.navigate(['admin/product/list']);
@@ -39,7 +52,6 @@ export class ProductFormComponent {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      id: '',
       title: ['',
         Validators.compose([
           Validators.required,
@@ -53,19 +65,6 @@ export class ProductFormComponent {
       ],
       image: '',
       description: ['', Validators.required]
-      /*
-      company: null,
-      firstName: [null, Validators.required],
-      lastName: [null, Validators.required],
-      address: [null, Validators.required],
-      address2: null,
-      city: [null, Validators.required],
-      state: [null, Validators.required],
-      postalCode: [null, Validators.compose([
-        Validators.required, Validators.minLength(5), Validators.maxLength(5)])
-      ],
-      shipping: ['free', Validators.required]
-      */
     });
   }
 
@@ -75,4 +74,3 @@ export class ProductFormComponent {
   }
 
 }
-
