@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     HighlightDirective,
   ],
   exports: [
+    MaterialModule,
     HeaderComponent,
     FooterComponent,
     ExponentialPipe,

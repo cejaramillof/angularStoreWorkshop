@@ -8,7 +8,7 @@ import {
   MatIconModule,
   MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule,
   MatRadioModule,
-  MatSelectModule, MatSidenavModule, MatSortModule,
+  MatSelectModule, MatSidenavModule, MatSortModule, MatStepperModule,
   MatTableModule
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -33,7 +33,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -52,7 +53,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }
