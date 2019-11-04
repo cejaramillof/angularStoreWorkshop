@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  total$: Observable<number>;
+  total$: Observable<string>;
 
   constructor(
     private cartService: CartService
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     // subscribe in front to better performance
     this.total$ = this.cartService.cart$
       .pipe(
-        map(products => products.length)
+        map(products => products.length.toString())
       );
       /*
       this.cartService.cart$.subscribe(products => {

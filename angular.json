@@ -48,7 +48,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
+              "aot": true, // need for ivy compiler
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,

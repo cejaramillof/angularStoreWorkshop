@@ -7,10 +7,10 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "esnext", // differential loading
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2015", // differential loading
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -20,6 +20,8 @@
     ]
   },
   "angularCompilerOptions": {
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }
