@@ -12,7 +12,7 @@ const routes: Routes = [
         redirectTo: '/home',
         pathMatch: 'full' },
       { path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }, // Dynamic Import
       { path: 'contact',
         loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
       { path: 'products',
