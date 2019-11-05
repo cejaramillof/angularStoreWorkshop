@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {environment} from '@environments/environment';
 import {catchError, map} from 'rxjs/operators';
+import * as Sentry from '@sentry/browser';
 
 @Injectable({
   providedIn: 'root'
@@ -107,6 +108,7 @@ export class ProductsService {
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);
+    Sentry.captureException(error);
     return throwError('Ups, error!');
   }
 }
