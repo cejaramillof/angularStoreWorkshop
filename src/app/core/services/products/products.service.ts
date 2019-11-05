@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Product} from '@core/product.model';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
 import {environment} from '@environments/environment';
-import {map} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -61,31 +61,53 @@ export class ProductsService {
   ) { }
 
   getAll(): Observable<Array<Product>> {
-    return this.http.get<Array<Product>>(`${this.apiUrl}products`);
+    return this.http.get<Array<Product>>(`${this.apiUrl}products`)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   get(id: string): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}products/${id}`);
     // return this.products.find(item => id === item.id);
+    return this.http.get<Product>(`${this.apiUrl}products/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${this.apiUrl}products`, product);
+    return this.http.post<Product>(`${this.apiUrl}products`, product)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   update(id: string, changes: Partial<Product>): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrl}products/${id}`, changes);
+    return this.http.put<Product>(`${this.apiUrl}products/${id}`, changes)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   delete(id: string): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.apiUrl}products/${id}`);
+    return this.http.delete<boolean>(`${this.apiUrl}products/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   getRandomUsers(): Observable<Array<User>> {
     return this.http.get('https://randomuser.me/api/?results=2')
       .pipe(
+        // catchError(error => throwError('Error')),
+        catchError(this.handleError),
         map( (response: any) => response.results as Array<User> )
       );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error);
+    return throwError('Ups, error!');
   }
 }
 
