@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  platziApi: 'http://plaxtzi-store.herokuapp.com/',
+  platziApi: 'http://platzi-store.herokuapp.com/',
   firebase: {
     apiKey: 'AIzaSyAu8thp-K-WxpwqzFa3R3eqg0SfiGOwX1E',
     authDomain: 'angular-store-63248.firebaseapp.com',

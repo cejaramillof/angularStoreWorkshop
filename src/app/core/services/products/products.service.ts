@@ -3,7 +3,7 @@ import {Product} from '@core/product.model';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {environment} from '@environments/environment';
-import {catchError, map} from 'rxjs/operators';
+import {catchError, map, retry} from 'rxjs/operators';
 import * as Sentry from '@sentry/browser';
 
 @Injectable({
@@ -64,6 +64,7 @@ export class ProductsService {
   getAll(): Observable<Array<Product>> {
     return this.http.get<Array<Product>>(`${this.apiUrl}products`)
       .pipe(
+        retry(3),
         catchError(this.handleError)
       );
   }
@@ -72,6 +73,7 @@ export class ProductsService {
     // return this.products.find(item => id === item.id);
     return this.http.get<Product>(`${this.apiUrl}products/${id}`)
       .pipe(
+        retry(3),
         catchError(this.handleError)
       );
   }
@@ -79,6 +81,7 @@ export class ProductsService {
   create(product: Product): Observable<Product> {
     return this.http.post<Product>(`${this.apiUrl}products`, product)
       .pipe(
+        retry(3),
         catchError(this.handleError)
       );
   }
@@ -86,6 +89,7 @@ export class ProductsService {
   update(id: string, changes: Partial<Product>): Observable<Product> {
     return this.http.put<Product>(`${this.apiUrl}products/${id}`, changes)
       .pipe(
+        retry(3),
         catchError(this.handleError)
       );
   }
@@ -93,6 +97,7 @@ export class ProductsService {
   delete(id: string): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}products/${id}`)
       .pipe(
+        retry(3),
         catchError(this.handleError)
       );
   }
@@ -101,6 +106,7 @@ export class ProductsService {
     return this.http.get('https://randomuser.me/api/?results=2')
       .pipe(
         // catchError(error => throwError('Error')),
+        retry(3),
         catchError(this.handleError),
         map( (response: any) => response.results as Array<User> )
       );
