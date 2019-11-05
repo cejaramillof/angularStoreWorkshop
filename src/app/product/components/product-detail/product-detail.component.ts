@@ -4,6 +4,7 @@ import {ProductsService, User} from '@core/services/products/products.service';
 import {Product} from '@core/product.model';
 import {switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-product-detail',
@@ -97,9 +98,12 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getFile() {
+
     this.productsService.getFile().subscribe(response => {
-      this.downLoadFile(response, 'text');
+      // this.downLoadFile(response, 'text/plain;charset=utf-8');
       // console.log(content);
+      const blob = new Blob([response], {type: 'text/plain;charset=utf-8'});
+      FileSaver.saveAs(blob, 'hello world.txt');
     });
   }
 
