@@ -44,4 +44,12 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]]
     });
   }
+
+  loginApi() {
+    const value = this.form.value;
+    this.authService.loginApi(value.email, value.password).subscribe((data) => {
+      console.log(data);
+    });
+
+  }
 }
