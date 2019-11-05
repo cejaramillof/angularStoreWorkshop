@@ -36,7 +36,7 @@ Sentry.init({
     AngularFireStorageModule
   ],
   providers: [
-    {provide: ErrorHandler, useFactory: SentryErrorHandler}
+    {provide: ErrorHandler, useClass: SentryErrorHandler}
     ],
   bootstrap: [AppComponent]
 })

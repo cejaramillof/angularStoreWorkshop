@@ -102,6 +102,10 @@ export class ProductsService {
       );
   }
 
+  getFile() {
+    return this.http.get('assets/files/test.txt', {responseType: 'text'});
+  }
+
   getRandomUsers(): Observable<Array<User>> {
     return this.http.get('https://randomuser.me/api/?results=2')
       .pipe(
