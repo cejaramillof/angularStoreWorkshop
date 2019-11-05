@@ -10,7 +10,7 @@ import {MyValidators} from '../../../utils/validators';
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.scss']
 })
-export class ProductEditComponent implements OnInit{
+export class ProductEditComponent implements OnInit {
   form: FormGroup;
   id: string;
 
