@@ -4,7 +4,7 @@ import {ProductRoutingModule} from './product-routing.module';
 import {ProductsContainer} from './container/products/products.container';
 import {ProductComponent} from './components/product/product.component';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '@shared/shared.module';
 
 
 

@@ -1,4 +1,4 @@
-import { Product } from '../../../product.model';
+import { Product } from '@core/product.model';
 import {
   Component,
   OnInit,
@@ -8,7 +8,7 @@ import {
   DoCheck,
   OnDestroy
 } from '@angular/core';
-import {CartService} from '../../../core/services/cart.service';
+import {CartService} from '@core/services/cart.service';
 
 @Component({
   // Decorator

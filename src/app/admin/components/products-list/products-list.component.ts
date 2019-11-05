@@ -3,8 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { ProductsListDataSource } from './products-list-datasource';
-import {ProductsService} from '../../../core/services/products/products.service';
-import {Product} from '../../../product.model';
+import {ProductsService} from '@core/services/products/products.service';
+import {Product} from '@core/product.model';
 
 @Component({
   selector: 'app-products-list',

@@ -17,7 +17,23 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@environments/*": ["src/environments/*"],
+      "@admin/*": ["src/app/admin/*"],
+      "@auth/*": ["src/app/auth/*"],
+      "@contact/*": ["src/app/contact/*"],
+      "@core/*": ["src/app/core/*"],
+      "@demo/*": ["src/app/demo/*"],
+      "@home/*": ["src/app/home/*"],
+      "@layout/*": ["src/app/layout/*"],
+      "@material/*": ["src/app/material/*"],
+      "@order/*": ["src/app/order/*"],
+      "@page-not-found/*": ["src/app/page-not-found/*"],
+      "@product/*": ["src/app/product/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@utils/*": ["src/app/utils/*"]
+    }
   },
   "angularCompilerOptions": {
     "noUnusedLocals": true,

@@ -3,8 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import {ProductsService} from '../../../core/services/products/products.service';
-import {Product} from '../../../product.model';
+import {ProductsService} from '@core/services/products/products.service';
+import {Product} from '@core/product.model';
 
 /**
  * Data source for the ProductsList view. This class should
