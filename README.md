@@ -61,3 +61,11 @@ Containers = fetch
 #### JS Fast need (Download, Parse, Compile, Execute)
 
 
+### Implementar webpack bundle analyzer
+```npm i webpack-bundle-analyzer --save-dev```
+
+Generar archivo de estadisticas
+```ng build --prod --stats-json```
+
+correr el bundle-analyzer
+```npx webpack-bundle-analyzer dist/angular-store/stats-es2015.json```
