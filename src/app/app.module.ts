@@ -12,7 +12,7 @@ import {environment} from '@environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import * as Sentry from '@sentry/browser';
-import {SentryErrorHandler} from '@core/error-handler';
+import {getErrorHandler} from '@core/error-handler';
 import {AuthInterceptor} from './auth.interceptor';
 
 // environment.production
@@ -37,7 +37,7 @@ Sentry.init({
     AngularFireStorageModule
   ],
   providers: [
-    {provide: ErrorHandler, useClass: SentryErrorHandler},
+    {provide: ErrorHandler, useFactory: getErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
     ],
   bootstrap: [AppComponent]

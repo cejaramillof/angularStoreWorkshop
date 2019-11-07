@@ -15,3 +15,10 @@ export class SentryErrorHandler implements ErrorHandler {
     Sentry.captureException(error.originalError || error);
   }
 }
+
+export function getErrorHandler(): ErrorHandler {
+  if (environment.production) {
+    return new SentryErrorHandler();
+  }
+  return new ErrorHandler();
+}

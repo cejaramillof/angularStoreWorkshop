@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '@environments/environment';
+import {TokenService} from '@core/services/token.service';
+import {tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,8 @@ export class AuthService {
 
   constructor(
     private angularFireAuth: AngularFireAuth,
-    private http: HttpClient
+    private http: HttpClient,
+    private token: TokenService
   ) { }
 
   createUser(email: string, password: string): Promise<firebase.auth.UserCredential> {
@@ -34,6 +37,9 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}auth`, {
       email,
       password
-    });
+    })
+      .pipe(
+        tap( (data: {token: string}) => this.token.saveToken(data.token) )
+      );
   }
 }

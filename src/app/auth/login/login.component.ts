@@ -50,6 +50,5 @@ export class LoginComponent implements OnInit {
     this.authService.loginApi(value.email, value.password).subscribe((data) => {
       console.log(data);
     });
-
   }
 }

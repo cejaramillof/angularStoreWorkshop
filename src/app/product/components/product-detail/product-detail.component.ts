@@ -107,6 +107,7 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  /*
   private downLoadFile(data: any, type: string) {
     const blob = new Blob([data], { type});
     const url = window.URL.createObjectURL(blob);
@@ -115,4 +116,5 @@ export class ProductDetailComponent implements OnInit {
       alert( 'Please disable your Pop-up blocker and try again.');
     }
   }
+  */
 }
