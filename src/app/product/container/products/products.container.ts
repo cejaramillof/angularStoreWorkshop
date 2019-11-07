@@ -7,7 +7,7 @@ import {ProductsService} from '@core/services/products/products.service';
   templateUrl: './products.container.html',
   styleUrls: ['./products.container.scss']
 })
-// tslint:disable-next-line:component-class-suffix
+
 export class ProductsContainer implements OnInit {
   products: Array<Product> = [];
 

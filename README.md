@@ -41,3 +41,23 @@ try dont repeat yourself
 Components = render, visual and interactive
 inputs and outputs to transfer data
 Containers = fetch
+
+
+# NGINX
+```docker pull nginx:alpine```
+
+```docker run -d -p 8080:80 -v ${pwd}/dist/angular-store/:/usr/share/nginx/html nginx:alpine```
+
+```docker ps / docker stop```
+
+```docker build . -t angular-store:latest```
+
+```docker run -d -p 80:80 angular-store:latest```
+
+## Compilación
+### Just in Time (JIT)
+### Ahead of Time (AOT) - Código precompilado
+ 
+#### JS Fast need (Download, Parse, Compile, Execute)
+
+
