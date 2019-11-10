@@ -14,6 +14,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import * as Sentry from '@sentry/browser';
 import {getErrorHandler} from '@core/error-handler';
 import {AuthInterceptor} from './auth.interceptor';
+import {QuicklinkModule} from 'ngx-quicklink';
 
 // environment.production
 Sentry.init({
@@ -34,12 +35,14 @@ Sentry.init({
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    QuicklinkModule
   ],
   providers: [
     {provide: ErrorHandler, useFactory: getErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
-    ],
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

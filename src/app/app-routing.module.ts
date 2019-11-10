@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LayoutComponent} from './layout/layout.component';
 import {AdminGuard} from './admin.guard';
-import {PreloadService} from '@core/services/preload.service';
+import {QuicklinkStrategy} from 'ngx-quicklink';
 
 const routes: Routes = [
   {
@@ -56,10 +56,14 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(
     routes,
+    // Code splitting
     // Pre-cargar los modulos cuando el navegador esté libre
     // Para renderizar más rápido al cambiar de modulo.
     // {preloadingStrategy: PreloadAllModules}
-    {preloadingStrategy: PreloadService}
+    // Custom Strategy
+    // {preloadingStrategy: PreloadService}
+    // Strategy based on intersection observer api, charge when links load in viewport
+    {preloadingStrategy: QuicklinkStrategy}
   )],
   exports: [RouterModule]
 })

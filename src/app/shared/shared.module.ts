@@ -5,8 +5,9 @@ import {HighlightDirective} from './directives/highlight/highlight.directive';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RouterModule} from '@angular/router';
-import {MaterialModule} from '@material/material.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {QuicklinkModule} from 'ngx-quicklink';
+import {MaterialModule} from '@material/material.module';
 
 @NgModule({
   declarations: [
@@ -16,17 +17,18 @@ import {ReactiveFormsModule} from '@angular/forms';
     HighlightDirective,
   ],
   exports: [
-    MaterialModule,
     HeaderComponent,
     FooterComponent,
     ExponentialPipe,
-    HighlightDirective
+    HighlightDirective,
+    MaterialModule
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QuicklinkModule,
+    MaterialModule
   ]
 })
 export class SharedModule { }
