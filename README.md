@@ -69,3 +69,13 @@ Generar archivo de estadisticas
 
 correr el bundle-analyzer
 ```npx webpack-bundle-analyzer dist/angular-store/stats-es2015.json```
+
+
+### Bundle Size
+peso en bites aplicación
+
+### Tree Shakeable
+Empaquetador detecta  código que no se esté utilizando y lo elimina
+
+
+### https://bundlephobia.com/
