@@ -79,3 +79,9 @@ Empaquetador detecta  código que no se esté utilizando y lo elimina
 
 
 ### https://bundlephobia.com/
+
+
+### angular budget (presupueto)
+in angular json can change the budget for the size of each file
+https://perf-budget-calculator.firebaseapp.com/
+https://www.performancebudget.io/
