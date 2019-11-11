@@ -89,3 +89,18 @@ https://www.performancebudget.io/
 
 ### markov chain
 Guess.js generate predictive model using tensorflow
+
+### google analytics
+https://analytics.google.com/analytics/web/?authuser=0#/provision
+
+## firebase hosting
+npx firebase-tools login
+npx firebase-tools init
+hosting / select project / public directory = dist/angular-store / n / n
+npx ng build --prod
+npx firebase-tools deploy
+https://angular-store-63248.firebaseapp.com/
+
+
+
+

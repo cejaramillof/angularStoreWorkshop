@@ -23,7 +23,7 @@
     "@angular/platform-browser": "^8.2.13",
     "@angular/platform-browser-dynamic": "^8.2.13",
     "@angular/router": "^8.2.13",
-    "@sentry/browser": "^5.7.1",
+    "@sentry/browser": "^5.8.0",
     "file-saver": "^2.0.2",
     "firebase": "^7.2.3",
     "flexboxgrid": "^6.3.1",
