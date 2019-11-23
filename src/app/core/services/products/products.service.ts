@@ -117,7 +117,7 @@ export class ProductsService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.log(error);
+    console.log(error + 'b');
     Sentry.captureException(error);
     return throwError('Ups, error!');
   }

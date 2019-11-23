@@ -72,6 +72,7 @@ export class ProductFormComponent {
       price: [0,
         Validators.compose([
           Validators.required,
+          MyValidators.isPriceValid,
           MyValidators.isValidPrice(100, 200)])
       ],
       image: '',
