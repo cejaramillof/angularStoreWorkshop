@@ -30,7 +30,7 @@
     "hammerjs": "^2.0.8",
     "ngx-quicklink": "^0.1.5",
     "rxjs": "~6.4.0",
-    "swiper": "^5.2.0",
+    "swiper": "^6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
